@@ -24,7 +24,7 @@ namespace Server
                 {
                     server.Bind("tcp://127.0.0.1:5556");
 
-                    string receivedMessage = server.ReceiveString();
+                    string receivedMessage = server.ReceiveString(NetMQ.zmq.SendReceiveOptions.SendMore);
                     string endpoint = server.Options.GetLastEndpoint;
                     Console.WriteLine("Server received message '{0}' from '{1}'", receivedMessage, endpoint);
 
